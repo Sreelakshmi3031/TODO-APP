@@ -1,0 +1,31 @@
+<div class="todo-container">
+    <h1>To-Do List</h1>
+
+    <input [(ngModel)]="newTaskTitle" placeholder="Add New Task">
+    <button class="ms-2 btn btn-success" (click)="addTask()"> Add </button>
+
+    <ul>
+        
+        @for(task of (task$ | async);track $index){
+
+            <li >
+                <input type="checkbox" [checked]="task.completed" (change)="toggleCompletion(task.id)">
+                <span [class.completed]="task.completed"> {{task.title}} </span>
+                <button class="mt-2 btn btn-success" (click)="deleteTask(task.id)"> Delete </button>
+            </li>
+        }
+    </ul>
+    <h3>View Completed Tasks</h3>
+    <ul>
+        
+
+            @for(task of (task$ | async) ; track task.completed){
+                @if(task.completed===true){
+                    <li>{{task.title}}</li>
+                }
+            }
+        
+    </ul>
+
+
+</div>
