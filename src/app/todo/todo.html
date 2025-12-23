@@ -5,7 +5,7 @@
   <button class="ms-2 btn btn-success" (click)="addTask()">Add</button>
 
   <ul>
-    @for(task of (task$ | async);track $index){
+    @for(task of (tasks$ | async);track $index){
 
     <li>
       <input
@@ -22,7 +22,7 @@
   </ul>
   <h3>View Completed Tasks</h3>
   <ul>
-    @for(task of (task$ | async) ; track task.completed){
+    @for(task of (tasks$ | async) ; track task.completed){
     @if(task.completed===true){
     <li>{{ task.title }}</li>
     } }
