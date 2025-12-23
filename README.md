@@ -1,1 +1,1 @@
-# TO-DO APP using Angular
+# TO-DO APP using Angular and ngrx store
